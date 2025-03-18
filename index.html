@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Número Magico</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="logica.js"></script>
+</head>
+<body>
+
+    <main>
+
+        <div class="componentes">
+            <!-- Pantalla de Inicio -->
+            <div id="pantalla-inicio">
+                <h1>Bienvenido al Juego</h1>
+                <button class="boton" onclick="cambiarVista('pantalla-juego')">Jugar</button>
+                <button class="boton" onclick="cambiarVista('pantalla-opciones')">Opciones</button>
+                <button class="boton" onclick="cambiarVista('pantalla-creditos')">Créditos</button>
+            </div>
+        
+            <!-- Pantalla de Juego -->
+            <div id="pantalla-juego" style="display: none;">
+                <h1>¡Juguemos!</h1>
+                <button class="boton" onclick="cambiarVista('pantalla-inicio')">Volver</button>
+            </div>
+        
+            <!-- Pantalla de Opciones -->
+            <div id="pantalla-opciones" style="display: none;">
+                <h1>Opciones</h1>
+                <button class="boton" onclick="cambiarVista('pantalla-inicio')">Volver</button>
+            </div>
+
+            <div id="pantalla-creditos" style="display: none;">
+                <h1>Créditos</h1>
+                <button class="boton" onclick="cambiarVista('pantalla-inicio')">Volver</button>
+
+            </div>
+        </div>
+        
+
+        <img id="inicio-background" src="recursos/principal-background.png" alt="Fondo" />
+            
+        
+    
+    
+
+    </main>
+    
+</body>
+</html>
