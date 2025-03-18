@@ -14,7 +14,7 @@
         <div class="componentes">
             <!-- Pantalla de Inicio -->
             <div id="pantalla-inicio">
-                <h1>Bienvenido al Juego</h1>
+                <h1>¡Bienvenido al Juego!</h1>
                 <button class="boton" onclick="cambiarVista('pantalla-juego')">Jugar</button>
                 <button class="boton" onclick="cambiarVista('pantalla-opciones')">Opciones</button>
                 <button class="boton" onclick="cambiarVista('pantalla-creditos')">Créditos</button>
@@ -23,6 +23,10 @@
             <!-- Pantalla de Juego -->
             <div id="pantalla-juego" style="display: none;">
                 <h1>¡Juguemos!</h1>
+                <form>
+                    <p>Adivina el número mágico</p>
+                    <input type="text" placeholder="ingresa aquí el número ">
+                </form>
                 <button class="boton" onclick="cambiarVista('pantalla-inicio')">Volver</button>
             </div>
         
@@ -34,6 +38,9 @@
 
             <div id="pantalla-creditos" style="display: none;">
                 <h1>Créditos</h1>
+                <p> Imagen background - Alma Aurelia, Tomado de Canva </p>
+                <p> Idea - Curso de Programación Web</p>
+                <p> Desarrollador - Kevin Torres </p>
                 <button class="boton" onclick="cambiarVista('pantalla-inicio')">Volver</button>
 
             </div>
