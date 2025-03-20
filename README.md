@@ -1,4 +1,4 @@
-🎲 El Número Mágico - Juego de Adivinanza
+🎲 El Número Mágico - Adivina un número
 
 El Número Mágico es un juego simple en el que el jugador debe adivinar un número secreto generado aleatoriamente entre 1 y 100. El sistema proporciona pistas para ayudar al jugador a encontrar el número correcto antes de que se agoten sus intentos.
 
