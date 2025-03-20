@@ -21,8 +21,8 @@ function iniciarJuego() {
     console.log("Número mágico:", numeroMagico); // para ver en consola e numero random
     intentos = 10;
     historialIntentos = []; // Reiniciar historial
-    document.getElementById("mensaje").innerHTML = ""; // Limpiar mensajes
-    document.getElementById("historial").innerHTML = ""; // Limpiar historial
+    document.getElementById("mensaje").innerHTML = ""; // borrar mensajes
+    document.getElementById("historial").innerHTML = ""; // borrar historial
 }
 
 function comprobarNumero() {
@@ -35,7 +35,7 @@ function comprobarNumero() {
     }
 
     intentos--;
-    historialIntentos.push(numUsuario); // Guardar intento
+    historialIntentos.push(numUsuario); // guardar intento
 
     if (numUsuario > numeroMagico) {
         agregarMensaje(` ${numUsuario} es mayor que el número mágico.`);
@@ -71,7 +71,7 @@ function actualizarHistorial() {
     });
 }
 
-// Cambiar vista de pantalla
+// cambiar vista de pantalla
 function cambiarVista(pantalla) {
     let pantallas = ["pantalla-inicio", "pantalla-juego", "pantalla-opciones", "pantalla-creditos"];
     pantallas.forEach(id => document.getElementById(id).style.display = "none");
@@ -79,6 +79,6 @@ function cambiarVista(pantalla) {
     document.getElementById(pantalla).style.display = "block";
 
     if (pantalla === "pantalla-juego") {
-        iniciarJuego(); // Reiniciar juego al entrar
+        iniciarJuego(); // reiniciar juego al entrar
     }
 }
