@@ -12,15 +12,15 @@
     <main>
 
         <div class="componentes">
-            <!-- Pantalla de Inicio -->
+            <!-- principal -->
             <div id="pantalla-inicio">
                 <h1>¡Bienvenido al Juego!</h1>
-                <button class="boton" onclick="cambiarVista('pantalla-juego')">Jugar</button>
-                <button class="boton" onclick="cambiarVista('pantalla-opciones')">Opciones</button>
-                <button class="boton" onclick="cambiarVista('pantalla-creditos')">Créditos</button>
+                <button class="boton" onclick="cambiarPantalla('pantalla-juego')">Jugar</button>
+                <button class="boton" onclick="cambiarPantalla('pantalla-opciones')">Opciones</button>
+                <button class="boton" onclick="cambiarPantalla('pantalla-creditos')">Créditos</button>
             </div>
         
-            <!-- Pantalla de Juego -->
+            <!-- pantalla de jugar -->
             <div id="pantalla-juego" style="display: none;">
                 <h1>¡Juguemos!</h1>
                 <form action="#">
@@ -35,30 +35,41 @@
                     <p></p>
 
                 </div>
-                <button class="boton" onclick="cambiarVista('pantalla-inicio')">Volver</button>
+                <div id="historial">
+                
+                </div>
+                <button class="boton" onclick="cambiarPantalla('pantalla-inicio')">Volver</button>
             </div>
+
+            
+
         
-            <!-- Pantalla de Opciones -->
+            <!-- pantalla ppciones -->
             <div id="pantalla-opciones" style="display: none;">
                 <h1>Opciones</h1>
-                <button class="boton" onclick="cambiarVista('pantalla-inicio')">Volver</button>
+                <button class="boton" onclick="cambiarPantalla('pantalla-inicio')">Volver</button>
             </div>
 
             <div id="pantalla-creditos" style="display: none;">
                 <h1>Créditos</h1>
+                <p> Desarrollador - Kevin Torres </p>
                 <p> Imagen background - Alma Aurelia, Tomado de Canva </p>
                 <p> Idea - Curso de Programación Web</p>
-                <p> Desarrollador - Kevin Torres </p>
-                <button class="boton" onclick="cambiarVista('pantalla-inicio')">Volver</button>
+                <p> Musica, Fallen Down - Toby Fox - Tomada de Undertale  </p>
+                
+                <button class="boton" onclick="cambiarPantalla('pantalla-inicio')">Volver</button>
 
             </div>
         </div>
         
-
-        <img id="inicio-background" src="recursos/principal-background.png" alt="Fondo" />
+<!--imagen de fndo-->
+        <img id="inicio-background" src="recursos/imagenes/principal-background.png" alt="Fondo" />
             
         
-    
+    <!-- musiquita porque si-->
+        <audio id="musicaFondo" autoplay loop>
+            <source src="recursos/audios/musica-de-fondo-Undertale-FallenDown.mp3" type="audio/mp3">
+        </audio>
     
 
     </main>

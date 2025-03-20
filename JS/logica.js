@@ -1,4 +1,4 @@
-function cambiarVista(idVista) {
+function cambiarPantalla(idVista) {
     // Ocultar todas las vistas dentro de "componentes"
     let vistas = document.querySelectorAll(".componentes > div");
     vistas.forEach(vista => vista.style.display = "none");
@@ -7,29 +7,78 @@ function cambiarVista(idVista) {
     document.getElementById(idVista).style.display = "block";
 }
 
+// defino variables
+var numeroMagico;
+var intentos = 10;
+var historialIntentos = [];
 
-var numeroMagico = Math.floor(Math.random()*100+1); 
-console.log("numeroMagico"); 
+window.onload = function() {
+    iniciarJuego();
+};
 
-function comprobarNumero(botonComprobar){
+function iniciarJuego() {
+    numeroMagico = Math.floor(Math.random() * 100) + 1;
+    console.log("Número mágico:", numeroMagico); // para ver en consola e numero random
+    intentos = 10;
+    historialIntentos = []; // Reiniciar historial
+    document.getElementById("mensaje").innerHTML = ""; // Limpiar mensajes
+    document.getElementById("historial").innerHTML = ""; // Limpiar historial
+}
 
-    const node = document.createElement("p"); 
-const textnode = document.createTextNode("El número que ingresaste es mayor al número magico"); 
+function comprobarNumero() {
+    let numUsuario = parseInt(document.getElementById("numUsuario").value);
+    let mensajeContainer = document.getElementById("mensaje");
 
-    let numUsuario = document.getElementById("numUsuario").value;
-    let mensaje = document.getElementById("mensaje").value;
-    if(numeroMagico > numUsuario){
-        const textnode = document.createTextNode("El número que ingresaste es mayor al número magico"); 
+    if (intentos <= 0) {
+        agregarMensaje("¡Juego terminado! El número era ${numeroMagico}");
+        return;
     }
-    if(numeroMagico < numUsuario){
-        const textnode = document.createTextNode("El número que ingresaste es menor al número magico"); 
+
+    intentos--;
+    historialIntentos.push(numUsuario); // Guardar intento
+
+    if (numUsuario > numeroMagico) {
+        agregarMensaje(` ${numUsuario} es mayor que el número mágico.`);
+    } else if (numUsuario < numeroMagico) {
+        agregarMensaje(` ${numUsuario} es menor que el número mágico.`);
+    } else {
+        agregarMensaje(`🎉 ¡Felicidades! Adivinaste el número mágico en ${10 - intentos} intentos.`);
+        intentos = 0;
     }
-    if(numeroMagico == numUsuario){
-        const textnode = document.createTextNode("El número que ingresaste es el correcto, ¡FELICIDADES!"); 
+
+    if (intentos === 0 && numUsuario !== numeroMagico) {
+        agregarMensaje(`❌ ¡Perdiste! El número mágico era ${numeroMagico}.`);
     }
+
+    actualizarHistorial();
+}
+
+function agregarMensaje(texto) {
+    let mensajeContainer = document.getElementById("mensaje");
+    let nuevoMensaje = document.createElement("p");
+    nuevoMensaje.textContent = texto;
+    mensajeContainer.appendChild(nuevoMensaje);
+}
+
+function actualizarHistorial() {
+    let historialContainer = document.getElementById("historial");
+    historialContainer.innerHTML = `<h3>Historial de Intentos</h3>`;
     
-    node.appendChild(textnode); 
+    historialIntentos.forEach((num, index) => {
+        let intentoMensaje = document.createElement("p");
+        intentoMensaje.textContent = `Intento ${index + 1}: ${num}`;
+        historialContainer.appendChild(intentoMensaje);
+    });
+}
 
-    document.getElementById("mensaje").appendChild(node); 
+// Cambiar vista de pantalla
+function cambiarVista(pantalla) {
+    let pantallas = ["pantalla-inicio", "pantalla-juego", "pantalla-opciones", "pantalla-creditos"];
+    pantallas.forEach(id => document.getElementById(id).style.display = "none");
 
+    document.getElementById(pantalla).style.display = "block";
+
+    if (pantalla === "pantalla-juego") {
+        iniciarJuego(); // Reiniciar juego al entrar
+    }
 }
