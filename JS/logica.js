@@ -46,7 +46,7 @@ function comprobarNumero() {
         intentos = 0;
     }
 
-    if (intentos === 0 && numUsuario !== numeroMagico) {
+    if (intentos === 10 && numUsuario !== numeroMagico) {
         agregarMensaje(`❌ ¡Perdiste! El número mágico era ${numeroMagico}.`);
     }
 
